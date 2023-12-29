@@ -1,0 +1,35 @@
+plugins {
+    id 'java'
+    id 'idea'
+    id "io.freefair.lombok" version "5.3.0"
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+compileJava.options.encoding = "UTF-8"
+compileTestJava.options.encoding = "UTF-8"
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    implementation 'mysql:mysql-connector-java:8.0.33'
+    implementation 'commons-dbutils:commons-dbutils:1.7'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.9.2'
+    testImplementation 'com.codeborne:selenide:6.12.3'
+    testImplementation 'org.slf4j:slf4j-nop:2.0.5'
+
+    compileOnly 'org.projectlombok:lombok:1.18.30'
+    annotationProcessor 'org.projectlombok:lombok:1.18.30'
+    testCompileOnly 'org.projectlombok:lombok:1.18.30'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.30'
+
+}
+
+test {
+    useJUnitPlatform()
+    systemProperty 'selenide.headless=true', System.getProperty('selenide.headless')
+    systemProperty 'db.url', System.getProperty('db.url', "jdbc:mysql://localhost:3306/app")
+}
