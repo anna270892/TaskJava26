@@ -9,7 +9,7 @@ import static data.DataHelper.*;
 import static data.DbHelper.*;
 
 
-public class loginTest {
+public class LoginTest {
 
     @BeforeEach
     void setUp() {
