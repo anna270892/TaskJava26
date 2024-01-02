@@ -21,7 +21,7 @@ public class DbHelper {
 
     @SneakyThrows
     public static String getCode() {
-        return runn.query(conn, "SELECT code FROM auth_codes", new ScalarHandler<>());
+        return runn.query(conn, "SELECT code FROM auth_codes ORDER BY id DESC LIMIT 1", new ScalarHandler<>());
     }
 
     @SneakyThrows

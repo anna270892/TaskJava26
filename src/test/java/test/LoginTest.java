@@ -1,5 +1,6 @@
 package test;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import lombok.val;
 import org.junit.jupiter.api.*;
 import page.LoginPage;
@@ -13,6 +14,7 @@ public class LoginTest {
 
     @BeforeEach
     void setUp() {
+        WebDriverManager.chromedriver().setup();
         open("http://localhost:9999");
     }
 
@@ -33,7 +35,6 @@ public class LoginTest {
     }
 
     @Test
-    @Disabled
     void shouldBeBlocked() {
         LoginPage page = new LoginPage();
         page.login(getAnotherAuthInfo());
