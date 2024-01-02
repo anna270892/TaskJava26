@@ -18,9 +18,9 @@ jobs:
         run: chmod +x gradlew
       - name: Waiting for SUT to Start
         run: sleep 30
-      - name: Start SUT
-        run: java -jar ./artifacts/app-deadline.jar &
-      - name: Build with Gradle
-        run: ./gradlew test --info
       - name: Container start
         run: docker-compose up &
+      - name: Start SUT
+        run: java -jar ./app-deadline.jar &
+      - name: Build with Gradle
+        run: ./gradlew test --info -Dselenide.headless=true
