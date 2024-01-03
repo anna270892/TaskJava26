@@ -2,6 +2,8 @@ package org.example.banklogin.page;
 
 import com.codeborne.selenide.SelenideElement;
 
+import java.time.Duration;
+
 import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
@@ -9,7 +11,7 @@ import static com.codeborne.selenide.Selenide.$;
 public class VerificationPage {
     private final SelenideElement codeField = $("[data-test-id=code] input");
     private final SelenideElement verifyButton = $("[data-test-id=action-verify]");
-    private final SelenideElement errorNotification = $("[data-test-id=error-notification'] .notification__content");
+    private final SelenideElement errorNotification = $("[data-test-id=error-notification] .notification__content");
 
 
     public void verifyVerificationPageVisiblity() {
