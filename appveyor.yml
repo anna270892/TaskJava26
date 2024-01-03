@@ -10,8 +10,12 @@ build: off  # будем использовать свой скрипт сбор
 
 install:
   # запускаем SUT (& означает, что в фоновом режиме не блокируем терминал для запуска тестов)
+  - docker-compose up -d # Запуск Docker Compose в фоновом режиме
   - java -jar ./artifacts/app-deadline.jar &
   - chmod +x gradlew
 
 build_script:
   - ./gradlew test --info -Dselenide.headless=true  # запускаем тест, флаг --info позволяет выводить больше информации
+
+on_finish:
+      - docker-compose down  # Остановка Docker Compose после завершения тестов
