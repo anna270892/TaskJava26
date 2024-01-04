@@ -75,14 +75,4 @@ public class LoginTest {
         verificationPage.verify(verificationCode.getCode());
         verificationPage.verifyErrorNotification("Ошибка! \nНеверно указан код! Попробуйте ещё раз.");
     }
-
-    //3 попытки ввода пароля !!!! не блокируется при трёхкратном неверном вводе пароля
-    //@Test
-    //void shouldGetErrorNotificationCodeThree() {
-    // var authInfo = DataHelper.generateRandomUser();
-    //loginPage.validLogin(authInfo);
-    // loginPage.validLogin(authInfo);
-    // loginPage.validLogin(authInfo);
-    //loginPage.verifyErrorNotification("????"); //
-    // }
 }
